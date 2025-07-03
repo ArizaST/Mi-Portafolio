@@ -45,3 +45,26 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', handleSkillsSection);
     handleSkillsSection(); // Ejecutar al cargar
 });
+// JavaScript para reproducir video al hacer hover
+document.addEventListener('DOMContentLoaded', function() {
+    const proyectos = document.querySelectorAll('.proyecto-web');
+    
+    proyectos.forEach(proyecto => {
+        const video = proyecto.querySelector('.proyecto-video');
+        
+        if (video) {
+            // Reproducir al hacer hover
+            proyecto.addEventListener('mouseenter', function() {
+                video.play().catch(e => {
+                    console.log('Error al reproducir video:', e);
+                });
+            });
+            
+            // Pausar al quitar hover
+            proyecto.addEventListener('mouseleave', function() {
+                video.pause();
+                video.currentTime = 0; // Reiniciar al principio
+            });
+        }
+    });
+});

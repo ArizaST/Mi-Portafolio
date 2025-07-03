@@ -751,6 +751,7 @@ span {
     transition: transform 0.3s ease;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .proyectos .galeria .proyecto:hover {
@@ -800,8 +801,10 @@ span {
     padding-top: 56.25%;
     position: relative;
     overflow: hidden;
+    background-color: #000;
 }
 
+/* Estilos para imágenes */
 .proyecto-imagen {
     position: absolute;
     top: 0;
@@ -814,6 +817,185 @@ span {
 
 .proyecto:hover .proyecto-imagen {
     transform: scale(1.1);
+}
+
+/* Estilos para videos */
+.proyecto-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.proyecto:hover .proyecto-video {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* ===== ESTILOS PARA DESARROLLO WEB ===== */
+.proyecto-web {
+    position: relative;
+}
+
+/* Aplicar overlay oscuro solo a proyectos con imágenes */
+.proyecto-web.proyecto-imagen-overlay .proyecto-img-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.proyecto-web.proyecto-imagen-overlay:hover .proyecto-img-wrapper::before {
+    opacity: 1;
+}
+
+/* Los proyectos con video NO tendrán overlay oscuro */
+
+.proyecto-acciones {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+}
+
+.proyecto-web:hover .proyecto-acciones {
+    opacity: 1;
+}
+
+.proyecto-web:hover .proyecto-nombre {
+    background-color: var(--main-color);
+    color: #000;
+}
+
+.accion-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background-color: var(--main-color);
+    color: #000;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1.4rem;
+    transition: all 0.3s ease;
+    border: 2px solid var(--main-color);
+    min-width: 140px;
+    box-shadow: 0 4px 15px rgba(14, 255, 255, 0.3);
+}
+
+.accion-btn:hover {
+    background-color: transparent;
+    color: var(--main-color);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(14, 255, 255, 0.4);
+}
+
+.accion-btn.github-btn {
+    background-color: #333;
+    color: #fff;
+    border-color: #333;
+    box-shadow: 0 4px 15px rgba(51, 51, 51, 0.3);
+}
+
+.accion-btn.github-btn:hover {
+    background-color: transparent;
+    color: #ffffff;
+    border-color: #333;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(51, 51, 51, 0.4);
+}
+
+.icono {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+    flex-shrink: 0;
+}
+
+/* Efectos adicionales para los botones */
+.accion-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+    border-radius: 30px;
+}
+
+.accion-btn:hover::before {
+    transform: translateX(100%);
+}
+
+.accion-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .proyectos h2 {
+        font-size: 3.5rem;
+    }
+    
+    .proyecto-subseccion h3 {
+        font-size: 2.5rem;
+    }
+    
+    .proyecto-acciones {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .accion-btn {
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        min-width: 120px;
+    }
+    
+    .icono {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .proyecto-acciones {
+        gap: 10px;
+    }
+    
+    .accion-btn {
+        padding: 8px 16px;
+        font-size: 1.1rem;
+        min-width: 100px;
+    }
+    
+    .icono {
+        width: 16px;
+        height: 16px;
+    }
 }
 
 /* ===== SECCIÓN CONTACTO ===== */
