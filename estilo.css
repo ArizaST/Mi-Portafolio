@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
         *{
             margin: 0;
@@ -126,6 +126,43 @@
             margin-bottom: 30px;
         }
 
+        .btn-ver-mas {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(45deg, var(--main-color), #0086c7);
+            color: var(--text-color);
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            border: 2px solid var(--main-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-ver-mas::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-ver-mas:hover::before {
+            left: 100%;
+        }
+
+        .btn-ver-mas:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 171, 240, 0.4);
+            background: linear-gradient(45deg, #0086c7, var(--main-color));
+        }
+
         .inicio .contenido-banner .redes a{
             color: var(--text-color);
             display: inline-block;
@@ -179,6 +216,11 @@
                 font-size: 1.1rem;
             }
 
+            .btn-ver-mas {
+                padding: 10px 25px;
+                font-size: 0.9rem;
+            }
+
             .inicio .contenido-banner .redes a {
                 width: 45px;
                 height: 45px;
@@ -213,6 +255,11 @@
 
             .inicio .contenido-banner h2 {
                 font-size: 1rem;
+            }
+
+            .btn-ver-mas {
+                padding: 8px 20px;
+                font-size: 0.85rem;
             }
 
             .inicio .contenido-banner .redes a {
