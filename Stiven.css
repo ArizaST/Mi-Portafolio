@@ -278,9 +278,9 @@ span {
     top: 50%;
     right: 5%;
     transform: translateY(-50%);
-    width: 45%;
+    width: 40%;
     height: 80%;
-    border-radius: 50%;
+    border-radius: 20%;
     overflow: hidden;
     z-index: 0;
 }
@@ -1106,6 +1106,38 @@ span {
 .contacto .col .info ul li p {
     font-size: 16px;
 }
+.whatsapp-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #25D366;
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-button:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .whatsapp-button:active {
+            transform: translateY(0);
+        }
+
+        .whatsapp-icon {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
 
 /* ===== FOOTER ===== */
 footer {

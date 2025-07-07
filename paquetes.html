@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precios - Servicios Profesionales</title>
+    <link rel="stylesheet" href="paquetes.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <a href="Stiven.html" class="logo">Servicios <span>Profesionales</span></a>
+        <nav class="navbar">
+            <a href="#precios">Precios</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <!-- Sección Precios -->
+    <section class="precios" id="precios">
+        <div class="precios-header">
+            <h1><span>Listado General de Precios</span> (2025)</h1>
+            <p>Valores aproximados – sujetos a ajustes por horas, revisiones, entregables y complejidad</p>
+        </div>
+
+        <div class="servicios-grid">
+            <!-- Desarrollo Web -->
+            <div class="servicio-card">
+                <div class="servicio-header">
+                    <i class='bx bx-code-alt servicio-icon'></i>
+                    <h3 class="servicio-title">🔵 Desarrollo Web</h3>
+                </div>
+                <table class="servicio-table">
+                    <thead>
+                        <tr>
+                            <th>Servicio</th>
+                            <th>Descripción</th>
+                            <th>Precio COP</th>
+                            <th>Precio USD</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Landing page básica</td>
+                            <td>1 página, responsive, HTML, CSS, JS básico</td>
+                            <td class="precio-col">$350.000 – $600.000</td>
+                            <td class="precio-col">$90 – $150</td>
+                        </tr>
+                        <tr>
+                            <td>Sitio web corporativo</td>
+                            <td>4-6 secciones, formulario, hosting asesoría</td>
+                            <td class="precio-col">$1.200.000 – $2.500.000</td>
+                            <td class="precio-col">$300 – $650</td>
+                        </tr>
+                        <tr>
+                            <td>Tienda online básica</td>
+                            <td>Catálogo de productos, carrito, pasarela</td>
+                            <td class="precio-col">$2.500.000 – $5.000.000</td>
+                            <td class="precio-col">$650 – $1.200</td>
+                        </tr>
+                        <tr>
+                            <td>Mantenimiento mensual</td>
+                            <td>Actualizaciones, backups, soporte</td>
+                            <td class="precio-col">$200.000 – $500.000/mes</td>
+                            <td class="precio-col">$50 – $120</td>
+                        </tr>
+                        <tr>
+                            <td>Desarrollo PHP personalizado</td>
+                            <td>Módulos, backend a medida</td>
+                            <td class="precio-col">Desde $1.500.000</td>
+                            <td class="precio-col">Desde $375</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Modelado 3D -->
+            <div class="servicio-card">
+                <div class="servicio-header">
+                    <i class='bx bx-cube servicio-icon'></i>
+                    <h3 class="servicio-title">🟢 Modelado 3D</h3>
+                </div>
+                <table class="servicio-table">
+                    <thead>
+                        <tr>
+                            <th>Servicio</th>
+                            <th>Descripción</th>
+                            <th>Precio COP</th>
+                            <th>Precio USD</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Modelado objeto simple</td>
+                            <td>1 modelo low-poly, sin texturas complejas</td>
+                            <td class="precio-col">$150.000 – $350.000</td>
+                            <td class="precio-col">$40 – $90</td>
+                        </tr>
+                        <tr>
+                            <td>Modelado personaje/cartoon</td>
+                            <td>Personaje low o mid-poly</td>
+                            <td class="precio-col">$500.000 – $1.200.000</td>
+                            <td class="precio-col">$130 – $300</td>
+                        </tr>
+                        <tr>
+                            <td>Modelado arquitectónico</td>
+                            <td>Interior o exterior, básico</td>
+                            <td class="precio-col">$600.000 – $1.500.000</td>
+                            <td class="precio-col">$150 – $380</td>
+                        </tr>
+                        <tr>
+                            <td>Render estático</td>
+                            <td>1 imagen renderizada HD</td>
+                            <td class="precio-col">$120.000 – $300.000</td>
+                            <td class="precio-col">$30 – $75</td>
+                        </tr>
+                        <tr>
+                            <td>Animación corta (3D)</td>
+                            <td>5-10 segundos</td>
+                            <td class="precio-col">Desde $400.000</td>
+                            <td class="precio-col">Desde $100</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contacto">
+        <div class="footer-content">
+            <h3>¿Interesado en nuestros servicios?</h3>
+            <p>Contáctanos para obtener una cotización personalizada según tus necesidades específicas.</p>
+            <div class="footer-contact">
+                <a href="#" onclick="mostrarOpcionesEmail()" title="Enviar correo electrónico"><i class='bx bx-envelope'></i></a>
+                <a href="tel:+573229015631" title="Llamar"><i class='bx bx-phone'></i></a>
+                <a href="https://wa.me/+573229015631?text=Hola%20Stiven,%20estoy%20interesado%20en%20tus%20servicios%20profesionales.%20¿Podrías%20darme%20más%20información?" title="Escribir por WhatsApp"><i class='bx bxl-whatsapp'></i></a>
+                <a href="https://www.linkedin.com/in/stiven-ariza-vargas-3457292b1/" title="Conectar en LinkedIn" target="_blank"><i class='bx bxl-linkedin'></i></a>
+            </div>
+            
+            <!-- Información de contacto visible -->
+            <div class="contact-info">
+                <p><strong>📧 Email:</strong> stivenfs2014@gmail.com</p>
+                <p><strong>📱 WhatsApp:</strong> +57 322 901 5631</p>
+                <button onclick="copiarEmail()" class="copy-btn">📋 Copiar Email</button>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Función mejorada para mostrar opciones de email
+        function mostrarOpcionesEmail() {
+            const email = 'stivenfs2014@gmail.com';
+            const subject = 'Consulta sobre servicios profesionales';
+            const body = `Hola Stiven,
+
+Estoy interesado en conocer más sobre tus servicios de:
+
+- Desarrollo Web
+- Modelado 3D
+
+Mi proyecto consiste en:
+
+[Describe tu proyecto aquí]
+
+Saludos,`;
+            
+            // Crear URLs para diferentes proveedores de email
+            const gmailURL = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            const outlookURL = `https://outlook.live.com/mail/0/deeplink/compose?to=${email}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            const yahooURL = `https://compose.mail.yahoo.com/?to=${email}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            // Crear ventana modal con opciones
+            const modalHTML = `
+                <div id="email-modal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); display: flex; align-items: center; justify-content: center; z-index: 1000;">
+                    <div style="background: white; padding: 30px; border-radius: 10px; max-width: 500px; width: 90%; text-align: center;">
+                        <h3 style="margin-bottom: 20px; color: #333;">Enviar Email</h3>
+                        <p style="margin-bottom: 20px; color: #666;">Elige tu proveedor de email preferido:</p>
+                        
+                        <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;">
+                            <button onclick="window.open('${gmailURL}', '_blank')" style="padding: 12px 20px; background: #ea4335; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
+                                📧 Gmail
+                            </button>
+                            <button onclick="window.open('${outlookURL}', '_blank')" style="padding: 12px 20px; background: #0078d4; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
+                                📧 Outlook
+                            </button>
+                            <button onclick="window.open('${yahooURL}', '_blank')" style="padding: 12px 20px; background: #7b0099; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
+                                📧 Yahoo
+                            </button>
+                            <button onclick="copiarEmail()" style="padding: 12px 20px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
+                                📋 Copiar Email
+                            </button>
+                        </div>
+                        
+                        <p style="font-size: 14px; color: #666; margin-bottom: 15px;">
+                            Email: <strong>${email}</strong>
+                        </p>
+                        
+                        <button onclick="cerrarModal()" style="padding: 8px 16px; background: #6c757d; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                            Cerrar
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            // Agregar modal al DOM
+            document.body.insertAdjacentHTML('beforeend', modalHTML);
+        }
+        
+        // Función para copiar email
+        function copiarEmail() {
+            const email = 'stivenfs2014@gmail.com';
+            
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(email).then(() => {
+                    alert('✅ Email copiado al portapapeles!\n\nPuedes pegarlo en tu cliente de correo preferido.');
+                    cerrarModal();
+                }).catch(() => {
+                    mostrarEmailParaCopiar(email);
+                });
+            } else {
+                mostrarEmailParaCopiar(email);
+            }
+        }
+        
+        // Función para mostrar email para copiar manualmente
+        function mostrarEmailParaCopiar(email) {
+            const textArea = document.createElement('textarea');
+            textArea.value = email;
+            textArea.style.position = 'fixed';
+            textArea.style.top = '50%';
+            textArea.style.left = '50%';
+            textArea.style.transform = 'translate(-50%, -50%)';
+            textArea.style.width = '300px';
+            textArea.style.height = '100px';
+            textArea.style.fontSize = '16px';
+            textArea.style.border = '2px solid #007bff';
+            textArea.style.borderRadius = '5px';
+            textArea.style.padding = '10px';
+            textArea.style.zIndex = '2000';
+            
+            document.body.appendChild(textArea);
+            textArea.select();
+            textArea.focus();
+            
+            alert('Selecciona y copia el email (Ctrl+C)');
+            
+            setTimeout(() => {
+                document.body.removeChild(textArea);
+                cerrarModal();
+            }, 5000);
+        }
+        
+        // Función para cerrar modal
+        function cerrarModal() {
+            const modal = document.getElementById('email-modal');
+            if (modal) {
+                modal.remove();
+            }
+        }
+
+        // Smooth scrolling para navegación
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Animación de aparición en scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observar las tarjetas de servicios
+        document.querySelectorAll('.servicio-card, .combo-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

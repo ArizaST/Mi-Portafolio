@@ -1,209 +1,224 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    border: none;
-    outline: none;
-    scroll-behavior: smooth;
-    font-family: 'Poppins', sans-serif;
-}
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            border: none;
+            outline: none;
+            scroll-behavior: smooth;
+            font-family: 'Poppins', sans-serif;
+        }
 
-html, body {
-    scroll-behavior: smooth;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-:root{
-    --bg-color: #081b29;
-    --second-bg-color: #112e42;
-    --text-color: #ededed;
-    --main-color: #00abf0;
-}
+        html, body {
+            scroll-behavior: smooth;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
 
-.header{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 2rem 9%;
-    background: transparent;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 100;
-}
+        :root{
+            --bg-color: #081b29;
+            --second-bg-color: #112e42;
+            --text-color: #ededed;
+            --main-color: #00abf0;
+        }
 
-.logo{
-    position: relative;
-    font-size: 1.7rem;
-    color: var(--text-color);
-    font-weight: 600;
-}
+        .header{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem 9%;
+            background: transparent;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
 
-.inicio .contenido-banner-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    max-width: 1100px; 
-    margin: auto;
-    padding: 20px;
-}
+        .logo{
+            position: relative;
+            font-size: 1.7rem;
+            color: var(--text-color);
+            font-weight: 600;
+        }
 
-.inicio {
-    background: linear-gradient(to top, rgba(30,35,38,.8), rgba(30,35,38,1)),
-    url(img/Fondo.jpeg);
-    background-size: cover;
-    background-position: center center;
-    height: 100%;
-    width: 100%;
-    margin-top: 0px;
-    position: relative;
-    z-index: 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-@media (max-width: 939px) {
-    .inicio{
-        height: auto;
-    }
-}
+        .inicio {
+            background: linear-gradient(to top, rgba(30,35,38,.8), rgba(30,35,38,1)),
+            url(Img/Fondo.jpeg);
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-.inicio .contenido-banner, .inicio .contenido-banner2{
-    padding: 20px;
-    background-color: var(--bg-color);
-    max-width: 350px;
-    margin: auto;
-    margin-left: 50px;
-    margin-right: 50px;
-    text-align: center;
-    border-radius: 40px;
-}
+        .inicio .contenido-banner-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            max-width: 1100px; 
+            margin: auto;
+            padding: 20px;
+            min-height: 100vh;
+        }
 
-.zoomable-image {
-    transition: transform 0.2s, filter 0.2s;
-  }
-  
-  
-  .zoomable-image:hover {
-    transform: scale(1.1);
-    filter: brightness(80%);
-  }
-  
-  .contenedor-img .zoomable-image{
-    display: block;
-    transition: transform 0.2s, filter 0.2s;
-  }
-  
-  .contenedor-img:hover .zoomable-image{
-    transform: scale(1.1);
-    filter: brightness(80%);
-    box-shadow: 0 0 50px var(--main-color);
-  }
+        .inicio .contenido-banner {
+            padding: 40px 30px;
+            background-color: var(--bg-color);
+            max-width: 400px;
+            margin: auto;
+            text-align: center;
+            border-radius: 40px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
 
+        .contenedor-img {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
 
-.inicio .contenido-banner img{
-    margin-top: 40px;
-    display: block;
-    width: 80%;
-    margin: auto;
-    border-radius: 100%;
-}
+        .zoomable-image {
+            transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 50%;
+            border: 4px solid var(--main-color);
+        }
 
-.inicio .contenido-banner2 img{
-    margin-top: 40px;
-    display: block;
-    width: 80%;
-    margin: auto;
-    border-radius: 100%;
-}
-.inicio .contenido-banner h1, .inicio .contenido-banner2 h1{
-    color: var(--text-color);
-    margin-top: 40px;
-    font-size: 39px;
-}
+        .zoomable-image:hover {
+            transform: scale(1.15);
+            filter: brightness(110%);
+            box-shadow: 0 0 30px var(--main-color);
+        }
 
-.inicio .contenido-banner h2, .inicio .contenido-banner2 h2{
-    color: var(--text-color);
-    font-size: 15px;
-    font-weight: normal;
-}
+        .inicio .contenido-banner img{
+            display: block;
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            margin: 0 auto;
+            border-radius: 50%;
+        }
 
-.inicio .contenido-banner .redes a, .inicio .contenido-banner2 .redes a{
-    color: var(--text-color);
-    display: inline-block;
-    text-decoration: none;
-    border: 1px solid #fff;
-    border-radius: 100%;
-    width: 42px;
-    height: 42px;
-    line-height: 42px;
-    margin: 40px 5px;
-    font-size: 20px;
-    transition: .3s;
-}
+        .inicio .contenido-banner h1{
+            color: var(--text-color);
+            margin-top: 30px;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
 
-.inicio .contenido-banner .redes a:hover, .inicio .contenido-banner2 .redes a:hover{
-    background-color: var(--main-color);
-}
+        .inicio .contenido-banner h2{
+            color: var(--main-color);
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
 
-@media (max-width: 768px) {
-    .inicio {
-        height: auto;
-    }
+        .inicio .contenido-banner .redes a{
+            color: var(--text-color);
+            display: inline-block;
+            text-decoration: none;
+            border: 2px solid var(--text-color);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            line-height: 46px;
+            margin: 0 8px;
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
 
-    .contenido-banner-container {
-        max-width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
-        text-align: center;
-        height: auto;
-    }
+        .inicio .contenido-banner .redes a:hover{
+            background-color: var(--main-color);
+            border-color: var(--main-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 171, 240, 0.4);
+        }
 
-    .inicio .contenido-banner,
-    .inicio .contenido-banner2 {
-        max-width: 80%;
-        margin: 20px auto;
-        text-align: center;
-        border-radius: 40px;
-    }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .inicio {
+                min-height: 100vh;
+                background-attachment: scroll;
+            }
 
-    .inicio .contenido-banner img,
-    .inicio .contenido-banner2 img {
-        width: 60%;
-        height: auto;
-        border-radius: 100%;
-        margin-top: 20px;
-    }
-    .inicio .contenido-banner h1, .inicio .contenido-banner2 h1{
-        margin-top: 10px;
-        font-size: 42px;
-        font-family: 'Poppins', sans-serif;
-    }
-    .inicio .contenido-banner h2, .inicio .contenido-banner2 h2{
-        font-size: 15px;
-        font-weight: normal;
-    }
-    .inicio .contenido-banner .redes a, .inicio .contenido-banner2 .redes a{
-        color: var(--text-color);
-        display: inline-block;
-        text-decoration: none;
-        border: 1px solid #fff;
-        border-radius: 100%;
-        width: 42px;
-        height: 42px;
-        line-height: 42px;
-        margin: 15px 0px;
-        font-size: 20px;
-        transition: .3s;
-    }
+            .inicio .contenido-banner-container {
+                padding: 20px;
+                min-height: 100vh;
+            }
 
-}
+            .inicio .contenido-banner {
+                max-width: 100%;
+                margin: 20px auto;
+                padding: 30px 20px;
+            }
+
+            .inicio .contenido-banner img {
+                width: 180px;
+                height: 180px;
+            }
+
+            .inicio .contenido-banner h1 {
+                font-size: 2.2rem;
+                margin-top: 20px;
+            }
+
+            .inicio .contenido-banner h2 {
+                font-size: 1.1rem;
+            }
+
+            .inicio .contenido-banner .redes a {
+                width: 45px;
+                height: 45px;
+                line-height: 41px;
+                margin: 0 5px;
+                font-size: 18px;
+            }
+
+            .header {
+                padding: 1.5rem 5%;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .inicio .contenido-banner {
+                max-width: 100%;
+                padding: 25px 15px;
+            }
+
+            .inicio .contenido-banner img {
+                width: 160px;
+                height: 160px;
+            }
+
+            .inicio .contenido-banner h1 {
+                font-size: 2rem;
+            }
+
+            .inicio .contenido-banner h2 {
+                font-size: 1rem;
+            }
+
+            .inicio .contenido-banner .redes a {
+                width: 40px;
+                height: 40px;
+                line-height: 36px;
+                font-size: 16px;
+            }
+        }
