@@ -56,7 +56,7 @@ const heroTranslations = {
 const skillsTranslations = {
     es: {
         subtitle: 'Habilidades',
-        title: 'Tecnologías & Expertise',
+        title: 'Stack Tecnológico & Especialidades',
         description: 'Dominio técnico en múltiples disciplinas del desarrollo multimedia y diseño digital',
         categories: ['Desarrollo Web', 'Modelado 3D', 'Diseño UI/UX'],
         individualSkills: {
@@ -78,7 +78,7 @@ const skillsTranslations = {
     },
     en: {
         subtitle: 'Skills',
-        title: 'Technologies & Expertise',
+        title: 'Tech Stack & Specialties',
         description: 'Technical mastery in multiple disciplines of multimedia development and digital design',
         categories: ['Web Development', '3D Modeling', 'UI/UX Design'],
         individualSkills: {

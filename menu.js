@@ -29,65 +29,123 @@
             }
         });
 
-        // Form validation and submission
-        function enviarFormulario() {
-            const nombre = document.getElementById('nombre').value.trim();
-            const telefono = document.getElementById('telefono').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const tema = document.getElementById('tema').value.trim();
-            const mensaje = document.getElementById('mensaje').value.trim();
+// Form validation and submission with AJAX
+function enviarFormulario(event) {
+    // Prevent default form submission
+    if (event) {
+        event.preventDefault();
+    }
+    const nombre = document.getElementById('nombre').value.trim();
+    const telefono = document.getElementById('telefono').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const tema = document.getElementById('tema').value.trim();
+    const mensaje = document.getElementById('mensaje').value.trim();
 
-            // Get current language for error messages
-            const errorMessages = {
-                es: {
-                    required: 'Por favor, complete los campos obligatorios: Nombre, Email y Mensaje',
-                    invalidEmail: 'Por favor, ingrese un correo electrónico válido.',
-                    invalidPhone: 'Por favor, ingrese un número de teléfono válido.',
-                    sending: 'Enviando...'
-                },
-                en: {
-                    required: 'Please complete the required fields: Name, Email and Message',
-                    invalidEmail: 'Please enter a valid email address.',
-                    invalidPhone: 'Please enter a valid phone number.',
-                    sending: 'Sending...'
-                }
-            };
-
-            const messages = errorMessages[currentLanguage];
-
-            if (!nombre || !email || !mensaje) {
-                alert(messages.required);
-                return false;
-            }
-
-            // Email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                alert(messages.invalidEmail);
-                return false;
-            }
-
-            // Phone validation (optional)
-            if (telefono && !/^\d+$/.test(telefono)) {
-                alert(messages.invalidPhone);
-                return false;
-            }
-
-            // Change button text to indicate sending
-            const boton = document.querySelector('.contact-submit-btn');
-            const buttonText = boton.querySelector('span');
-            const buttonIcon = boton.querySelector('i');
-            
-            if (boton && buttonText && buttonIcon) {
-                buttonText.textContent = messages.sending;
-                buttonIcon.className = 'fa-solid fa-spinner fa-spin';
-                boton.disabled = true;
-                boton.style.opacity = '0.7';
-            }
-
-            // Allow form to submit to Formspree
-            return true;
+    // Get current language for error messages
+    const errorMessages = {
+        es: {
+            required: 'Por favor, complete los campos obligatorios: Nombre, Email y Mensaje',
+            invalidEmail: 'Por favor, ingrese un correo electrónico válido.',
+            invalidPhone: 'Por favor, ingrese un número de teléfono válido.',
+            sending: 'Enviando...',
+            success: '✅ ¡Mensaje enviado exitosamente!\n\nGracias por contactarme. Te responderé pronto.',
+            error: '❌ Error al enviar el mensaje.\n\nPor favor, intenta nuevamente o contacta directamente por WhatsApp.'
+        },
+        en: {
+            required: 'Please complete the required fields: Name, Email and Message',
+            invalidEmail: 'Please enter a valid email address.',
+            invalidPhone: 'Please enter a valid phone number.',
+            sending: 'Sending...',
+            success: '✅ Message sent successfully!\n\nThank you for contacting me. I will respond soon.',
+            error: '❌ Error sending message.\n\nPlease try again or contact directly via WhatsApp.'
         }
+    };
+
+    const messages = errorMessages[currentLanguage] || errorMessages['es'];
+
+    if (!nombre || !email || !mensaje) {
+        alert(messages.required);
+        return false;
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        alert(messages.invalidEmail);
+        return false;
+    }
+
+    // Phone validation (optional)
+    if (telefono && !/^\+?[\d\s\-\(\)]+$/.test(telefono)) {
+        alert(messages.invalidPhone);
+        return false;
+    }
+
+    // Change button text to indicate sending
+    const boton = document.querySelector('.contact-submit-btn');
+    const buttonText = boton.querySelector('span');
+    const buttonIcon = boton.querySelector('i');
+    
+    if (boton && buttonText && buttonIcon) {
+        buttonText.textContent = messages.sending;
+        buttonIcon.className = 'fa-solid fa-spinner fa-spin';
+        boton.disabled = true;
+        boton.style.opacity = '0.7';
+    }
+
+    // Prepare form data
+    const formData = new FormData();
+    formData.append('nombre', nombre);
+    formData.append('telefono', telefono);
+    formData.append('email', email);
+    formData.append('tema', tema);
+    formData.append('mensaje', mensaje);
+
+    // Send form with AJAX
+    fetch('https://formspree.io/f/xldjpddq', {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            // Success
+            alert(messages.success);
+            document.getElementById('formulario-contacto').reset();
+        } else {
+            // Error
+            throw new Error('Form submission failed');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert(messages.error);
+    })
+    .finally(() => {
+        // Restore button
+        if (boton && buttonText && buttonIcon) {
+            const sendText = currentLanguage === 'es' ? 'Enviar Mensaje' : 'Send Message';
+            buttonText.textContent = sendText;
+            buttonIcon.className = 'fas fa-paper-plane';
+            boton.disabled = false;
+            boton.style.opacity = '1';
+        }
+    });
+
+    // No need to return false since we're using event.preventDefault()
+}
+
+// Update the form event listener setup
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(event) {
+            enviarFormulario(event);
+        });
+    }
+});
 
         // Download CV function - VERSIÓN BILINGÜE COMPLETA
 function downloadCV() {
