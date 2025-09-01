@@ -1,39 +1,4 @@
-// Mouse interaction effects with Anime.js
-        function initMouseEffects() {
-            const card = document.querySelector('.portfolio-card');
-            const hero = document.querySelector('.hero');
-            
-            if (card && hero) {
-                hero.addEventListener('mousemove', (e) => {
-                    const rect = hero.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    const centerX = rect.width / 2;
-                    const centerY = rect.height / 2;
-                    
-                    const rotateX = (y - centerY) / centerY * 8;
-                    const rotateY = (centerX - x) / centerX * 8;
-                    
-                    anime({
-                        targets: card,
-                        rotateX: rotateX,
-                        rotateY: rotateY,
-                        duration: 400,
-                        easing: 'easeOutQuad'
-                    });
-                });
-                
-                hero.addEventListener('mouseleave', () => {
-                    anime({
-                        targets: card,
-                        rotateX: 0,
-                        rotateY: 0,
-                        duration: 600,
-                        easing: 'easeOutElastic(1, .6)'
-                    });
-                });
-            }
-        }<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -1072,6 +1037,42 @@
             // Remove loading states and optimize animations
             document.body.classList.add('loaded');
         });
+        // Mouse interaction effects with Anime.js
+        function initMouseEffects() {
+            const card = document.querySelector('.portfolio-card');
+            const hero = document.querySelector('.hero');
+            
+            if (card && hero) {
+                hero.addEventListener('mousemove', (e) => {
+                    const rect = hero.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const rotateX = (y - centerY) / centerY * 8;
+                    const rotateY = (centerX - x) / centerX * 8;
+                    
+                    anime({
+                        targets: card,
+                        rotateX: rotateX,
+                        rotateY: rotateY,
+                        duration: 400,
+                        easing: 'easeOutQuad'
+                    });
+                });
+                
+                hero.addEventListener('mouseleave', () => {
+                    anime({
+                        targets: card,
+                        rotateX: 0,
+                        rotateY: 0,
+                        duration: 600,
+                        easing: 'easeOutElastic(1, .6)'
+                    });
+                });
+            }
+        }
     </script>
 </body>
 </html>
