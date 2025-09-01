@@ -1,37 +1,1077 @@
-<!DOCTYPE html>
-<html lang="en">
+// Mouse interaction effects with Anime.js
+        function initMouseEffects() {
+            const card = document.querySelector('.portfolio-card');
+            const hero = document.querySelector('.hero');
+            
+            if (card && hero) {
+                hero.addEventListener('mousemove', (e) => {
+                    const rect = hero.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const rotateX = (y - centerY) / centerY * 8;
+                    const rotateY = (centerX - x) / centerX * 8;
+                    
+                    anime({
+                        targets: card,
+                        rotateX: rotateX,
+                        rotateY: rotateY,
+                        duration: 400,
+                        easing: 'easeOutQuad'
+                    });
+                });
+                
+                hero.addEventListener('mouseleave', () => {
+                    anime({
+                        targets: card,
+                        rotateX: 0,
+                        rotateY: 0,
+                        duration: 600,
+                        easing: 'easeOutElastic(1, .6)'
+                    });
+                });
+            }
+        }<!DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Portafolio</title>
-    <link rel="stylesheet" href="estilo.css">
-    <script src="https://kit.fontawesome.com/7ce88deda5.js" crossorigin="anonymous"></script>
+    <title>Stiven Ariza - Portafolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
+        :root {
+            --primary-bg: #0a0a0a;
+            --secondary-bg: #1a1a1a;
+            --card-bg: #2a2a2a;
+            --accent-color: #c9a96e;
+            --text-primary: #ffffff;
+            --text-secondary: #b8b8b8;
+            --text-muted: #8a8a8a;
+            --border-color: #3a3a3a;
+            --gradient-primary: linear-gradient(135deg, #c9a96e 0%, #d4b87a 100%);
+            --gradient-dark: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            --shadow-light: 0 4px 20px rgba(201, 169, 110, 0.1);
+            --shadow-medium: 0 8px 40px rgba(0, 0, 0, 0.3);
+            --shadow-heavy: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Light Mode Variables */
+        [data-theme="light"] {
+            --primary-bg: #ffffff;
+            --secondary-bg: #f8f9fa;
+            --card-bg: #ffffff;
+            --accent-color: #b8860b;
+            --text-primary: #1a1a1a;
+            --text-secondary: #4a4a4a;
+            --text-muted: #6a6a6a;
+            --border-color: #e0e0e0;
+            --gradient-primary: linear-gradient(135deg, #b8860b 0%, #daa520 100%);
+            --gradient-dark: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            --shadow-light: 0 4px 20px rgba(184, 134, 11, 0.1);
+            --shadow-medium: 0 8px 40px rgba(0, 0, 0, 0.1);
+            --shadow-heavy: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--primary-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background 0.3s ease, color 0.3s ease;
+            min-height: 100vh;
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        /* Anime.js Elements */
+        .bg-element {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            background: radial-gradient(circle, var(--accent-color), transparent);
+        }
+
+        .bg-line {
+            position: absolute;
+            background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+            opacity: 0.05;
+            height: 2px;
+            border-radius: 1px;
+        }
+
+        .bg-dot {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            opacity: 0;
+        }
+
+        .bg-dot::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: radial-gradient(circle, var(--accent-color), transparent);
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+
+        /* Mesh Gradient Background */
+        .mesh-gradient {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse 80% 50% at 20% 30%, rgba(201, 169, 110, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 40% at 80% 70%, rgba(201, 169, 110, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse 100% 30% at 40% 80%, rgba(201, 169, 110, 0.06) 0%, transparent 50%);
+            animation: meshMove 20s infinite ease-in-out alternate;
+        }
+
+        @keyframes meshMove {
+            0% {
+                transform: translate(0, 0) scale(1);
+                filter: hue-rotate(0deg);
+            }
+            50% {
+                transform: translate(20px, -10px) scale(1.05);
+                filter: hue-rotate(5deg);
+            }
+            100% {
+                transform: translate(-10px, 15px) scale(0.95);
+                filter: hue-rotate(-5deg);
+            }
+        }
+
+        /* Animated Grid */
+        .animated-grid {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.02;
+            background-image: 
+                linear-gradient(rgba(201, 169, 110, 0.3) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(201, 169, 110, 0.3) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 25s infinite linear;
+        }
+
+        @keyframes gridMove {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(50px, 50px);
+            }
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .theme-toggle,
+        .language-toggle {
+            background: transparent;
+            border: 2px solid var(--border-color);
+            color: var(--text-secondary);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .language-toggle {
+            font-size: 0.8rem;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .theme-toggle:hover,
+        .language-toggle:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+            transform: scale(1.1);
+        }
+
+        .theme-toggle i {
+            transition: transform 0.3s ease;
+        }
+
+        .theme-toggle:hover i {
+            transform: rotate(180deg);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: background 0.3s ease;
+            z-index: 1;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .portfolio-card {
+            background: var(--gradient-dark);
+            border-radius: 30px;
+            padding: 4rem 3rem;
+            max-width: 500px;
+            width: 100%;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-heavy);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .portfolio-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(201, 169, 110, 0.05) 50%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .portfolio-card:hover::before {
+            opacity: 1;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-heavy);
+            border-color: var(--accent-color);
+        }
+
+        .image-container {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            margin: 0 auto 2rem auto;
+        }
+
+        .image-container::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: -15px;
+            bottom: -15px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid var(--accent-color);
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+            filter: brightness(110%);
+            box-shadow: 0 0 40px rgba(201, 169, 110, 0.4);
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.1; }
+            50% { transform: scale(1.05); opacity: 0.2; }
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            letter-spacing: 1px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: var(--gradient-primary);
+            color: var(--primary-bg);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-light);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .social-links a {
+            width: 55px;
+            height: 55px;
+            background: var(--secondary-bg);
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 1.3rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            transition: left 0.3s ease;
+            z-index: 0;
+        }
+
+        .social-links a:hover::before {
+            left: 0;
+        }
+
+        .social-links a i {
+            position: relative;
+            z-index: 1;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-light);
+        }
+
+        .social-links a:hover i {
+            color: var(--primary-bg);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 1rem;
+            }
+
+            .logo {
+                font-size: 1.6rem;
+            }
+
+            .theme-toggle,
+            .language-toggle {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .language-toggle {
+                font-size: 0.7rem;
+            }
+
+            .hero {
+                padding: 0 1rem;
+            }
+
+            .portfolio-card {
+                padding: 3rem 2rem;
+                margin: 20px;
+            }
+
+            .image-container {
+                width: 200px;
+                height: 200px;
+            }
+
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .cta-button {
+                padding: 1rem 2.5rem;
+                font-size: 1rem;
+            }
+
+            .social-links a {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+
+            .particle {
+                opacity: 0.02;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .portfolio-card {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .image-container {
+                width: 180px;
+                height: 180px;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .cta-button {
+                padding: 0.9rem 2rem;
+                font-size: 0.95rem;
+            }
+
+            .social-links a {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--primary-bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-color);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d4b87a;
+        }
+
+        /* Loading animation */
+        .loading {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body>
-    <header class='header'>
-        <a href="index.html" class="logo">PORTAFOLIO.</a>
-    </header>
-    
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="mesh-gradient"></div>
+        <div class="animated-grid"></div>
+        <div id="bg-elements-container"></div>
+        <div id="bg-lines-container"></div>
+        <div id="bg-dots-container"></div>
+    </div>
 
-    <!-- SECCION INICIO -->
-    <section id="inicio" class="inicio">
-        <div class="contenido-banner-container">
-            <div class="contenido-banner">
-                <div class="contenedor-img">
-                    <a href="Stiven.html"><img src="Img/Stiven.jpeg" alt="" class="zoomable-image"></a>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">PORTAFOLIO.</a>
+            <div class="nav-right">
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar tema">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="language-toggle" onclick="toggleLanguage()" aria-label="Cambiar idioma">
+                    <span id="language-text">EN</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="portfolio-card loading">
+                <div class="image-container">
+                    <a href="Stiven.html">
+                        <img src="Img/Stiven.jpeg" alt="Stiven Ariza" class="profile-image">
+                    </a>
                 </div>
-                <h1>Stiven Ariza</h1>
-                <h2>Ingeniero Multimedia</h2>
-                <a href="Stiven.html" class="btn-ver-mas">Mi trabajo</a>
-                <div class="redes">
-                    <a href="https://sketchfab.com/stiven_ariza21"><i class="fa-solid fa-cube"></i></a>
-                    <a href="https://github.com/ArizaST"><i class="fa-brands fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/stiven-ariza-vargas-3457292b1/"><i class="fa-brands fa-linkedin-in"></i></a>
+                <h1 class="hero-title" data-es="Stiven Ariza" data-en="Stiven Ariza">Stiven Ariza</h1>
+                <h2 class="hero-subtitle" data-es="Ingeniero Multimedia" data-en="Multimedia Engineer">Ingeniero Multimedia</h2>
+                <a href="Stiven.html" class="cta-button">
+                    <i class="fas fa-briefcase" style="margin-right: 0.5rem;"></i>
+                    <span data-es="Mi Trabajo" data-en="My Work">Mi Trabajo</span>
+                </a>
+                <div class="social-links">
+                    <a href="https://sketchfab.com/stiven_ariza21" target="_blank" rel="noopener noreferrer" aria-label="Sketchfab">
+                        <i class="fa-solid fa-cube"></i>
+                    </a>
+                    <a href="https://github.com/ArizaST" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/stiven-ariza-vargas-3457292b1/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
+
+    <script>
+        // ====================================
+        // SISTEMA DE IDIOMAS OPTIMIZADO
+        // ====================================
+        let currentLanguage = 'es';
+
+        const translations = {
+            es: {
+                subtitle: 'Ingeniero Multimedia',
+                cta: 'Mi Trabajo',
+                themeLabel: 'Cambiar tema',
+                langLabel: 'Cambiar idioma'
+            },
+            en: {
+                subtitle: 'Multimedia Engineer',
+                cta: 'My Work',
+                themeLabel: 'Toggle theme',
+                langLabel: 'Toggle language'
+            }
+        };
+
+        function toggleLanguage() {
+            currentLanguage = currentLanguage === 'es' ? 'en' : 'es';
+            updateContent();
+            saveLanguagePreference();
+        }
+
+        function updateContent() {
+            const translation = translations[currentLanguage];
+            
+            // Update language button
+            const languageButton = document.getElementById('language-text');
+            if (languageButton) {
+                languageButton.textContent = currentLanguage === 'es' ? 'EN' : 'ES';
+            }
+            
+            // Update content using data attributes
+            const elements = document.querySelectorAll('[data-es][data-en]');
+            elements.forEach(element => {
+                const text = element.getAttribute(`data-${currentLanguage}`);
+                if (text) {
+                    if (element.tagName === 'SPAN' || element.tagName === 'H1' || element.tagName === 'H2') {
+                        element.textContent = text;
+                    }
+                }
+            });
+            
+            // Update aria labels
+            updateAriaLabels();
+        }
+
+        function updateAriaLabels() {
+            const translation = translations[currentLanguage];
+            const themeToggle = document.querySelector('.theme-toggle');
+            const langToggle = document.querySelector('.language-toggle');
+            
+            if (themeToggle) themeToggle.setAttribute('aria-label', translation.themeLabel);
+            if (langToggle) langToggle.setAttribute('aria-label', translation.langLabel);
+        }
+
+        function saveLanguagePreference() {
+            try {
+                localStorage.setItem('indexLanguage', currentLanguage);
+            } catch (error) {
+                console.warn('Could not save language preference:', error);
+            }
+        }
+
+        function loadLanguagePreference() {
+            try {
+                const savedLanguage = localStorage.getItem('indexLanguage');
+                if (savedLanguage && ['es', 'en'].includes(savedLanguage)) {
+                    currentLanguage = savedLanguage;
+                }
+            } catch (error) {
+                console.warn('Could not load language preference:', error);
+            }
+            updateContent();
+        }
+
+        // ====================================
+        // THEME SYSTEM
+        // ====================================
+        function toggleTheme() {
+            const body = document.body;
+            const themeToggle = document.querySelector('.theme-toggle i');
+            const currentTheme = body.getAttribute('data-theme');
+            
+            if (currentTheme === 'light') {
+                body.setAttribute('data-theme', 'dark');
+                themeToggle.className = 'fas fa-moon';
+                try {
+                    localStorage.setItem('indexTheme', 'dark');
+                } catch (error) {
+                    console.warn('Could not save theme preference:', error);
+                }
+            } else {
+                body.setAttribute('data-theme', 'light');
+                themeToggle.className = 'fas fa-sun';
+                try {
+                    localStorage.setItem('indexTheme', 'light');
+                } catch (error) {
+                    console.warn('Could not save theme preference:', error);
+                }
+            }
+        }
+
+        function loadTheme() {
+            try {
+                const savedTheme = localStorage.getItem('indexTheme') || 'dark';
+                const themeToggle = document.querySelector('.theme-toggle i');
+                
+                document.body.setAttribute('data-theme', savedTheme);
+                
+                if (savedTheme === 'light') {
+                    themeToggle.className = 'fas fa-sun';
+                } else {
+                    themeToggle.className = 'fas fa-moon';
+                }
+            } catch (error) {
+                console.warn('Could not load theme preference:', error);
+            }
+        }
+
+        // ====================================
+        // ANIMATIONS & INTERACTIONS
+        // ====================================
+        function initAnimations() {
+            setTimeout(() => {
+                animateCardEntrance();
+                animateProfileImage();
+            }, 100);
+        }
+
+        // ====================================
+        // ANIME.JS BACKGROUND ANIMATIONS
+        // ====================================
+        function createAnimeBackground() {
+            const elementsContainer = document.getElementById('bg-elements-container');
+            const linesContainer = document.getElementById('bg-lines-container');
+            const dotsContainer = document.getElementById('bg-dots-container');
+            
+            if (!elementsContainer || !linesContainer || !dotsContainer) return;
+            
+            // Create floating elements (circles)
+            const elementCount = window.innerWidth < 768 ? 8 : 15;
+            for (let i = 0; i < elementCount; i++) {
+                const element = document.createElement('div');
+                element.className = 'bg-element';
+                
+                const size = Math.random() * 100 + 50;
+                element.style.width = size + 'px';
+                element.style.height = size + 'px';
+                element.style.left = Math.random() * 100 + '%';
+                element.style.top = Math.random() * 100 + '%';
+                
+                elementsContainer.appendChild(element);
+            }
+            
+            // Create animated lines
+            const lineCount = window.innerWidth < 768 ? 4 : 8;
+            for (let i = 0; i < lineCount; i++) {
+                const line = document.createElement('div');
+                line.className = 'bg-line';
+                
+                line.style.width = Math.random() * 200 + 100 + 'px';
+                line.style.left = Math.random() * 100 + '%';
+                line.style.top = Math.random() * 100 + '%';
+                line.style.transform = `rotate(${Math.random() * 360}deg)`;
+                
+                linesContainer.appendChild(line);
+            }
+            
+            // Create floating dots
+            const dotCount = window.innerWidth < 768 ? 12 : 25;
+            for (let i = 0; i < dotCount; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'bg-dot';
+                
+                dot.style.left = Math.random() * 100 + '%';
+                dot.style.top = Math.random() * 100 + '%';
+                
+                dotsContainer.appendChild(dot);
+            }
+            
+            // Animate floating elements
+            anime({
+                targets: '.bg-element',
+                translateY: function() { 
+                    return anime.random(-50, 50); 
+                },
+                translateX: function() { 
+                    return anime.random(-30, 30); 
+                },
+                scale: function() { 
+                    return anime.random(0.8, 1.2); 
+                },
+                opacity: [0.05, 0.15, 0.05],
+                duration: function() { 
+                    return anime.random(8000, 15000); 
+                },
+                easing: 'easeInOutSine',
+                loop: true,
+                direction: 'alternate',
+                delay: function() { 
+                    return anime.random(0, 5000); 
+                }
+            });
+            
+            // Animate lines
+            anime({
+                targets: '.bg-line',
+                translateX: function() { 
+                    return anime.random(-100, 100); 
+                },
+                rotate: function() { 
+                    return anime.random(-180, 180); 
+                },
+                scaleX: [0.5, 1.5, 0.5],
+                opacity: [0.02, 0.08, 0.02],
+                duration: function() { 
+                    return anime.random(10000, 18000); 
+                },
+                easing: 'easeInOutQuad',
+                loop: true,
+                direction: 'alternate',
+                delay: function() { 
+                    return anime.random(0, 8000); 
+                }
+            });
+            
+            // Animate dots with staggered effect
+            anime({
+                targets: '.bg-dot',
+                translateY: function() { 
+                    return anime.random(-80, 80); 
+                },
+                translateX: function() { 
+                    return anime.random(-60, 60); 
+                },
+                scale: [0, 1, 0],
+                opacity: [0, 0.6, 0],
+                duration: 4000,
+                easing: 'easeInOutCirc',
+                loop: true,
+                delay: anime.stagger(200, {start: 1000})
+            });
+            
+            // Mouse movement interaction
+            let mouseX = 0;
+            let mouseY = 0;
+            
+            document.addEventListener('mousemove', function(e) {
+                mouseX = e.clientX / window.innerWidth;
+                mouseY = e.clientY / window.innerHeight;
+                
+                anime({
+                    targets: '.bg-element',
+                    translateX: function(el, i) {
+                        return (mouseX - 0.5) * (i + 1) * 20;
+                    },
+                    translateY: function(el, i) {
+                        return (mouseY - 0.5) * (i + 1) * 15;
+                    },
+                    duration: 1000,
+                    easing: 'easeOutQuad'
+                });
+            });
+        }
+
+        // Card entrance animation
+        function animateCardEntrance() {
+            const card = document.querySelector('.portfolio-card');
+            if (!card) return;
+            
+            // Initial state
+            anime.set(card, {
+                opacity: 0,
+                translateY: 50,
+                scale: 0.9
+            });
+            
+            // Entrance animation
+            anime({
+                targets: card,
+                opacity: 1,
+                translateY: 0,
+                scale: 1,
+                duration: 1200,
+                easing: 'easeOutElastic(1, .8)',
+                delay: 500
+            });
+            
+            // Animate card elements
+            anime({
+                targets: '.hero-title',
+                opacity: [0, 1],
+                translateY: [30, 0],
+                duration: 800,
+                easing: 'easeOutQuad',
+                delay: 800
+            });
+            
+            anime({
+                targets: '.hero-subtitle',
+                opacity: [0, 1],
+                translateY: [20, 0],
+                duration: 600,
+                easing: 'easeOutQuad',
+                delay: 1000
+            });
+            
+            anime({
+                targets: '.cta-button',
+                opacity: [0, 1],
+                scale: [0.8, 1],
+                duration: 500,
+                easing: 'easeOutBack',
+                delay: 1200
+            });
+            
+            anime({
+                targets: '.social-links a',
+                opacity: [0, 1],
+                translateY: [20, 0],
+                scale: [0.8, 1],
+                duration: 400,
+                easing: 'easeOutQuad',
+                delay: anime.stagger(100, {start: 1400})
+            });
+        }
+
+        // Profile image animation
+        function animateProfileImage() {
+            const profileImage = document.querySelector('.profile-image');
+            if (!profileImage) return;
+            
+            anime.set(profileImage, {
+                opacity: 0,
+                scale: 0.8
+            });
+            
+            anime({
+                targets: profileImage,
+                opacity: 1,
+                scale: 1,
+                duration: 1000,
+                easing: 'easeOutElastic(1, .6)',
+                delay: 600
+            });
+            
+            // Continuous subtle animation
+            anime({
+                targets: '.image-container::before',
+                scale: [1, 1.1, 1],
+                opacity: [0.1, 0.2, 0.1],
+                duration: 4000,
+                easing: 'easeInOutSine',
+                loop: true
+            });
+        }
+
+        // Enhanced parallax effect with Anime.js
+        function initParallax() {
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const scrollPercent = scrolled / (document.body.scrollHeight - window.innerHeight);
+                
+                anime({
+                    targets: '.mesh-gradient',
+                    translateY: scrolled * 0.5,
+                    duration: 100,
+                    easing: 'linear'
+                });
+                
+                anime({
+                    targets: '.animated-grid',
+                    translateY: scrolled * 0.3,
+                    duration: 100,
+                    easing: 'linear'
+                });
+                
+                // Subtle movement for background elements
+                anime({
+                    targets: '.bg-element',
+                    translateY: function(el, i) {
+                        return scrolled * (0.1 + i * 0.02);
+                    },
+                    duration: 100,
+                    easing: 'linear'
+                });
+            });
+        }
+
+        // ====================================
+        // INITIALIZATION
+        // ====================================
+        document.addEventListener('DOMContentLoaded', function() {
+            loadTheme();
+            loadLanguagePreference();
+            createAnimeBackground();
+            initAnimations();
+            initParallax();
+            initMouseEffects();
+            
+            // Preload images
+            const img = new Image();
+            img.src = 'Img/Stiven.jpeg';
+        });
+
+        // Performance optimization
+        window.addEventListener('load', function() {
+            // Remove loading states and optimize animations
+            document.body.classList.add('loaded');
+        });
+    </script>
 </body>
 </html>

@@ -3,463 +3,505 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio de Stiven Ariza</title>
-    <meta name="description" content="Portafolio de Stiven Ariza, estudiante de ingeniería Multimedia especializado en modelado 3D y animación.">
-    <meta name="keywords" content="portafolio, Stiven Ariza, ingeniería multimedia, modelado 3D, animación, diseño">
-    <link rel="stylesheet" href="Stiven.css">
+    <title>Stiven Ariza - Ingeniero Multimedia</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://kit.fontawesome.com/7ce88deda5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="Stiven.css">
 </head>
 <body>
-    <header class="header">
-        <a href="index.html" class="logo">PORTAFOLIO</a>
-        <div class="menu-icon">
-            <i class="fa-solid fa-bars"></i>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Stiven Ariza</a>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="#hero" class="active" data-es="Inicio" data-en="Home">Inicio</a></li>
+                    <li><a href="#skills" data-es="Habilidades" data-en="Skills">Habilidades</a></li>
+                    <li><a href="#projects" data-es="Proyectos" data-en="Projects">Proyectos</a></li>
+                    <li><a href="#about" data-es="Sobre Mí" data-en="About Me">Sobre Mí</a></li>
+                    <li><a href="#contact" data-es="Contacto" data-en="Contact">Contacto</a></li>
+                </ul>
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar tema">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="language-toggle" onclick="toggleLanguage()" aria-label="Cambiar idioma">
+                    <span id="language-text">EN</span>
+                </button>
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
         </div>
-        <nav class="navbar">
-            <div class="menu-links">
-                <a href="#inicio" class="active">Inicio</a>
-                <a href="#skills">Skills</a>
-                <a href="#proyectos">Proyectos</a>
-                <a href="#sobremi">Sobre Mi</a>
-                <a href="#contacto">Contacto</a>
-                <!-- <a href="paquetes.html">Paquetes</a> -->
+    </nav>
 
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <p class="hero-subtitle" data-es="Ingeniero Multimedia" data-en="Multimedia Engineer">Ingeniero Multimedia</p>
+                <h1 class="hero-title" data-es="Transformando ideas en realidad digital" data-en="Transforming ideas into digital reality">Transformando ideas en realidad digital</h1>
+                <p class="hero-description" data-es="Como Ingeniero Multimedia, combino creatividad y tecnología para desarrollar sitios web únicos y modelos 3D que cobran vida. Cada proyecto es una oportunidad de innovar y crear algo extraordinario." data-en="As a Multimedia Engineer, I combine creativity and technology to develop unique websites and 3D models that come to life. Each project is an opportunity to innovate and create something extraordinary.">
+                    Como Ingeniero Multimedia, combino creatividad y tecnología para desarrollar 
+                    sitios web únicos y modelos 3D que cobran vida. Cada proyecto es una oportunidad 
+                    de innovar y crear algo extraordinario.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn-primary" data-es="Ver Mi Trabajo" data-en="View My Work">Ver Mi Trabajo</a>
+                    <a href="Stiven_Ariza_CV_Espanol.pdf" 
+                       class="btn-secondary" 
+                       download="Stiven_Ariza_CV_Español.pdf"
+                       target="_blank"
+                       onclick="downloadCV(); return false;">
+                        <i class="fas fa-download" style="margin-right: 0.5rem;"></i>
+                        <span data-es="Descargar CV" data-en="Download CV">Descargar CV</span>
+                    </a>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/ArizaST" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/stiven-ariza-3457292b1/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://sketchfab.com/stiven_ariza21" target="_blank"><i class="fas fa-cube"></i></a>
+                </div>
             </div>
-        </nav>
-    </header>
-
-    <section class="inicio" id="inicio">
-        <div class="inicio-content">
-            <h1>Hola, Soy <span>Stiven Ariza</span></h1>
-            <div class="text-animate profesion">
-                <h3>Desarrollador Web y Modelador 3D</h3>
-            </div>
-            <div class="text-animate">
-                <h3>Ingeniero en Multimedia</h3>
-            </div>
-            <div class="btn-box">
-                <a href="#sobremi" class="btn">Conóceme</a>
-            </div>
-        </div>
-        
-        <div class="inicio-circle-img">
-            <img src="Img/Sti.jpeg" alt="Stiven Ariza">
-        </div>
-        
-        <div class="inicio-sci">
-            <a href="https://sketchfab.com/stiven_ariza21"><i class="fa-solid fa-cube"></i></a>
-            <a href="https://github.com/ArizaST"><i class="fa-brands fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/stiven-ariza-vargas-3457292b1/"><i class="fa-brands fa-linkedin-in"></i></a>
-        </div>
-    </section>
-
-    <section class="skills" id="skills">
-        <div class="tech-logos">
-            <h3>Tecnologías que domino</h3>
-            <div class="logos-container">
-                <div class="logo-item">
-                    <img src="Img/logos/java.png" alt="Maya" loading="lazy">
-                    <span>JavaScript</span>
-                </div>
-                <div class="logo-item">
-                    <img src="Img/logos/html-5.png" alt="HTML" loading="lazy">
-                    <span>HTML</span>
-                </div>
-                <div class="logo-item">
-                    <img src="Img/logos/css-3.png" alt="CSS" loading="lazy">
-                    <span>CSS</span>
-                </div>
-                <div class="logo-item">
-                    <img src="Img/logos/python.png" alt="Python" loading="lazy">
-                    <span>Python</span>
-                </div>
-                <div class="logo-item">
-                    <img src="Img/logos/PHP.png" alt="PHP" loading="lazy">
-                    <span>PHP</span>
-                </div>
-                <div class="logo-item">
-                    <img src="Img/logos/mysql.png" alt="MySQL" loading="lazy">
-                    <span>MySQL</span>
-                </div>
-                <div class="logo-item">
-                    <img src="Img/logos/unity.png" alt="Unity" loading="lazy">
-                    <span>Unity</span>
-                </div>
-                <div class="logo-item">
-                    <img src="Img/logos/maya.png" alt="Maya" loading="lazy">
-                    <span>Maya</span>
-                </div>
-                <div class="logo-item">
-                    <img src="Img/logos/substance.png" alt="Substance" loading="lazy">
-                    <span>Substance</span>
-                </div>
-                <div class="logo-item">
-                    <img src="Img/logos/figma.webp" alt="Figma" loading="lazy">
-                    <span>Figma</span>
-                </div>
-                <div class="logo-item">
-                    <img src="Img/logos/ux-ui.png" alt="UI/UX" loading="lazy">
-                    <span>UI/UX</span>
+            <div class="hero-image">
+                <div class="image-container">
+                    <img src="Img/Sti.jpeg" alt="Stiven Ariza" class="profile-image">
                 </div>
             </div>
         </div>
     </section>
 
-<section id="proyectos" class="proyectos">
-        <div class="contenido-seccion">
-            <h2>Mis Proyectos</h2>
-            <div class="proyecto-subseccion">
-                <h3>Modelado 3D</h3>
-                <div class="galeria">
-                    <!-- Proyecto 1: Carro -->
-                    <div class="proyecto">
-                        <div class="sketchfab-embed-wrapper">
-                            <iframe 
-                                title="Carro" 
-                                frameborder="0" 
-                                allowfullscreen 
-                                mozallowfullscreen="true" 
-                                webkitallowfullscreen="true" 
-                                allow="autoplay; fullscreen; xr-spatial-tracking" 
-                                xr-spatial-tracking 
-                                execution-while-out-of-viewport 
-                                execution-while-not-rendered 
-                                web-share 
-                                src="https://sketchfab.com/models/17be5e745f7b41fdabbf5151e47a8b56/embed?autostart=1"
-                                class="proyecto-iframe"
-                            ></iframe>
-                        </div>
-                        <div class="proyecto-nombre">Carro 3D</div>
-                    </div>
-                    
-                    <!-- Proyecto 2: Dragon Drytron Gamma -->
-                    <div class="proyecto">
-                        <div class="sketchfab-embed-wrapper">
-                            <iframe 
-                                title="Monstruo" 
-                                frameborder="0" 
-                                allowfullscreen 
-                                mozallowfullscreen="true" 
-                                webkitallowfullscreen="true" 
-                                allow="autoplay; fullscreen; xr-spatial-tracking" 
-                                xr-spatial-tracking 
-                                execution-while-out-of-viewport 
-                                execution-while-not-rendered 
-                                web-share 
-                                src="https://sketchfab.com/models/e19bb4bc94e144d5976a4581263f1198/embed"
-                                class="proyecto-iframe"
-                            ></iframe>
-                        </div>
-                        <div class="proyecto-nombre">Dragon Drytron Gamma 3D</div>
-                    </div>
-
-                    <!-- Proyecto 3: Tiburon -->
-                    <div class="proyecto">
-                        <div class="sketchfab-embed-wrapper">
-                            <iframe 
-                                title="Tiburon" 
-                                frameborder="0" 
-                                allowfullscreen 
-                                mozallowfullscreen="true" 
-                                webkitallowfullscreen="true" 
-                                allow="autoplay; fullscreen; xr-spatial-tracking" 
-                                xr-spatial-tracking 
-                                execution-while-out-of-viewport 
-                                execution-while-not-rendered 
-                                web-share 
-                                src="https://sketchfab.com/models/1cf1e27af5d143c2b2cc75accfb3bf2b/embed"
-                                class="proyecto-iframe"
-                            ></iframe>
-                        </div>
-                        <div class="proyecto-nombre">Tiburon 3D</div>
-                    </div>
-                    <!-- Proyecto 4: Habitacion -->
-                    <div class="proyecto">
-                        <div class="sketchfab-embed-wrapper">
-                            <iframe 
-                                title="Habitacion" 
-                                frameborder="0" 
-                                allowfullscreen 
-                                mozallowfullscreen="true" 
-                                webkitallowfullscreen="true" 
-                                allow="autoplay; fullscreen; xr-spatial-tracking" 
-                                xr-spatial-tracking 
-                                execution-while-out-of-viewport 
-                                execution-while-not-rendered 
-                                web-share 
-                                src="https://sketchfab.com/models/c2639d89c92c48b087f2814e4b77d22f/embed"
-                                class="proyecto-iframe"
-                            ></iframe>
-                        </div>
-                        <div class="proyecto-nombre">Habitacion 3D</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Desarrollo Web -->
-            <div class="proyecto-subseccion">
-                <h3>Desarrollo Web</h3>
-                <div class="galeria">
-                    <!-- Proyecto 1: CDMAFE -->
-                    <div class="proyecto proyecto-web">
-                        <div class="proyecto-img-wrapper">
-                            <img src="Img/Web/CDMAFE.png" alt="Proyecto Web 4" class="proyecto-imagen">
-                        </div>
-                        <div class="proyecto-nombre">CDMAFE | web de carpintería</div>
-                        <div class="proyecto-acciones">
-                            <a href="https://cdmafe.com.co/" class="accion-btn demo-btn" target="_blank">
-                                <svg class="icono" viewBox="0 0 24 24">
-                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                                </svg>
-                                Ver Demo
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Proyecto 2: Bellaroma | Web de Venta de Perfumes -->
-                    <div class="proyecto proyecto-web">
-                        <div class="proyecto-img-wrapper">
-                            <img src="Img/Web/Bellaroma.png" alt="Proyecto Web 1" class="proyecto-imagen">
-                        </div>
-                        <div class="proyecto-nombre">Bellaroma | Web de Venta de Perfumes</div>
-                        <div class="proyecto-acciones">
-                            <a href="https://arizast.github.io/Bellaroma/" class="accion-btn demo-btn" target="_blank">
-                                <svg class="icono" viewBox="0 0 24 24">
-                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                                </svg>
-                                Ver Demo
-                            </a>
-                            <a href="https://github.com/ArizaST/Bellaroma" class="accion-btn github-btn" target="_blank">
-                                <svg class="icono" viewBox="0 0 24 24">
-                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                                </svg>
-                                Código
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <!-- Proyecto 3: Liana -->
-                    <div class="proyecto proyecto-web">
-                        <div class="proyecto-img-wrapper">
-                            <img src="Img/Web/Liana.png" alt="Proyecto Web 2" class="proyecto-imagen">
-                        </div>
-                        <div class="proyecto-nombre">Liana | web de tienda de Ropa</div>
-                        <div class="proyecto-acciones">
-                            <a href="https://arizast.github.io/Liana-/" class="accion-btn demo-btn" target="_blank">
-                                <svg class="icono" viewBox="0 0 24 24">
-                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                                </svg>
-                                Ver Demo
-                            </a>
-                            <a href="https://github.com/ArizaST/Liana" class="accion-btn github-btn" target="_blank">
-                                <svg class="icono" viewBox="0 0 24 24">
-                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                                </svg>
-                                Código
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Proyecto 4: EcoRide -->
-                    <div class="proyecto proyecto-web">
-                        <div class="proyecto-img-wrapper">
-                            <img src="Img/Web/Carros.png" alt="Proyecto Web 3" class="proyecto-imagen">
-                        </div>
-                        <div class="proyecto-nombre">EcoRide | web de carros electricos | Framework Ionic</div>
-                        <div class="proyecto-acciones">
-                            <a href="https://github.com/ArizaST/Carros-Electricos" class="accion-btn github-btn" target="_blank">
-                                <svg class="icono" viewBox="0 0 24 24">
-                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                                </svg>
-                                Código
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Otros -->
-            <div class="proyecto-subseccion">
-                <h3>Otros</h3>
-                <div class="galeria">
-                    <!-- Proyecto 1: Simulación de particulas -->
-        <div class="proyecto proyecto-web">
-            <div class="proyecto-img-wrapper">
-                <video class="proyecto-video" controls muted loop preload="metadata">
-                    <source src="Video/Cocina.mp4" type="video/mp4">
-                    Tu navegador no soporta el elemento video.
-                </video>
-            </div>
-            <div class="proyecto-nombre">Simulación de Particulas</div>
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="section-header">
+            <p class="section-subtitle">Habilidades</p>
+            <h2 class="section-title">Tecnologías & Expertise</h2>
+            <p class="section-description">
+                Dominio técnico en múltiples disciplinas del desarrollo multimedia y diseño digital
+            </p>
         </div>
-        
-        <!-- Proyecto 2: Robot -->
-        <div class="proyecto proyecto-web">
-            <div class="proyecto-img-wrapper">
-                <video class="proyecto-video" controls muted loop preload="metadata">
-                    <source src="Video/Video.mp4" type="video/mp4">
-                    Tu navegador no soporta el elemento video.
-                </video>
-            </div>
-            <div class="proyecto-nombre">Video Robot</div>
-        </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="sobremi" id="sobremi">
-        <h2 class="heading">Sobre <span>Mí</span></h2>
-        <div class="sobremi-grid">
-            <div class="sobre-img">
-                <img src="Img/Stiven.jpeg" alt="Stiven Ariza">
-                <span class="circle-spin"></span>
-            </div>
-            <div class="sobre-content">
-                <div class="sobre-sections">
-                    <div class="sobre-section">
-                        <h3>Perfil Profesional</h3>
-                        <p>Soy Stiven Ariza Vargas, Ingeniero Multimedia apasionado por la intersección de la tecnología y la creatividad. Con un enfoque sólido en desarrollo web, modelado 3D y diseño multimedia, busco convertirme en un profesional innovador capaz de transformar ideas complejas en experiencias visuales y digitales impactantes.</p>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3><i class="fas fa-code"></i> Desarrollo Web</h3>
+                <div class="skills-list">
+                    <div class="skill-item">
+                        <img src="Img/logos/html-5.png" alt="HTML5" loading="lazy">
+                        <span>HTML5</span>
                     </div>
-                    
-                    <div class="sobre-section">
-                        <h3>Formación Académica y Competencias</h3>
-                        <ul>
-                            <li>
-                                <i class="fa-solid fa-graduation-cap"></i>
-                                Pregrado de Ingeniería Multimedia en la Universidad Militar Nueva Granada
-                            </li>
-                            <li>
-                                <i class="fa-solid fa-code"></i>
-                                Dominio técnico en herramientas de vanguardia: JavaScript, HTML, CSS, Python, Maya, Unity, Substance Painter y Figma
-                            </li>
-                            <li>
-                                <i class="fa-solid fa-cube"></i>
-                                Especialización en modelado 3D y animación digital con proyectos verificables en plataformas como Sketchfab
-                            </li>
-                            <li>
-                                <i class="fa-solid fa-palette"></i>
-                                Habilidades sólidas en UI/UX design con un enfoque en crear interfaces intuitivas y atractivas
-                            </li>
-                        </ul>
+                    <div class="skill-item">
+                        <img src="Img/logos/css-3.png" alt="CSS3" loading="lazy">
+                        <span>CSS3</span>
                     </div>
-                    
-                    <div class="sobre-section">
-                        <h3>Objetivo Profesional</h3>
-                        <p>Mi meta es desarrollar soluciones multimedia que combinen rigor técnico con creatividad, enfocándome en proyectos que desafíen los límites del diseño digital y la experiencia del usuario. Estoy comprometido con el aprendizaje continuo y ansío contribuir en equipos que valoren la innovación y la excelencia técnica.</p>
+                    <div class="skill-item">
+                        <img src="Img/logos/java.png" alt="JavaScript" loading="lazy">
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="Img/logos/python.png" alt="Python" loading="lazy">
+                        <span>Python</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="Img/logos/PHP.png" alt="PHP" loading="lazy">
+                        <span>PHP</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="Img/logos/mysql.png" alt="MySQL" loading="lazy">
+                        <span>MySQL</span>
                     </div>
                 </div>
-                
-                <div class="experiencia-habilidades">
-                    <div class="experiencia">
-                        <h3>Experiencia</h3>
-                        <div class="experiencia-item">
-                            <h4>Proyecto de Modelado 3D</h4>
-                            <p>Desarrollo de modelos 3D para diversos proyectos multimedia, incluyendo visualizaciones arquitectónicas, personajes de videojuegos y objetos.</p>
-                        </div>
-                        <div class="experiencia-item">
-                            <h4>Desarrollo Web</h4>
-                            <p>Creación de sitios web responsives y aplicaciones web utilizando tecnologías modernas como HTML5, CSS3 y JavaScript.</p>
-                        </div>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-cube"></i> Modelado 3D</h3>
+                <div class="skills-list">
+                    <div class="skill-item">
+                        <img src="Img/logos/maya.png" alt="Maya" loading="lazy">
+                        <span>Maya</span>
                     </div>
-                    
-                    <div class="habilidades-tecnicas">
-                        <h3>Habilidades Técnicas</h3>
-                        <div class="habilidades-grid">
-                            <div class="habilidad-item">
-                                <i class="fa-brands fa-html5"></i>
-                                <span>HTML5</span>
-                            </div>
-                            <div class="habilidad-item">
-                                <i class="fa-brands fa-css3-alt"></i>
-                                <span>CSS3</span>
-                            </div>
-                            <div class="habilidad-item">
-                                <i class="fa-brands fa-js"></i>
-                                <span>JavaScript</span>
-                            </div>
-                            <div class="habilidad-item">
-                                <i class="fa-brands fa-python"></i>
-                                <span>Python</span>
-                            </div>
-                            <div class="habilidad-item">
-                                <i class="fa-solid fa-cubes"></i>
-                                <span>3D Modeling</span>
-                            </div>
-                            <div class="habilidad-item">
-                                <i class="fa-solid fa-palette"></i>
-                                <span>UI/UX Design</span>
-                            </div>
-                        </div>
+                    <div class="skill-item">
+                        <img src="Img/logos/substance.png" alt="Substance" loading="lazy">
+                        <span>Substance</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="Img/logos/unity.png" alt="Unity" loading="lazy">
+                        <span>Unity</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-magic" style="color: #ff6b6b;"></i>
+                        <span>Animación</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-vr-cardboard" style="color: #4ecdc4;"></i>
+                        <span>Renderizado</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-shapes" style="color: #45b7d1;"></i>
+                        <span>Texturizado</span>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-palette"></i> Diseño UI/UX</h3>
+                <div class="skills-list">
+                    <div class="skill-item">
+                        <img src="Img/logos/figma.webp" alt="Figma" loading="lazy">
+                        <span>Figma</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="Img/logos/ux-ui.png" alt="UI/UX" loading="lazy">
+                        <span>UI/UX Design</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-user-friends" style="color: #96ceb4;"></i>
+                        <span>UX Research</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-sitemap" style="color: #feca57;"></i>
+                        <span>Wireframing</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-eye" style="color: #ff9ff3;"></i>
+                        <span>Prototipado</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-chart-line" style="color: #54a0ff;"></i>
+                        <span>Testing</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-<section id="contacto" class="contacto">
-    <div class="contenido-seccion">
-        <h2>CONTACTO</h2>
-        <div class="fila">
-            <!-- Formulario -->
-            <div class="col">
-                <form id="formulario-contacto" action="https://formspree.io/f/xldjpddq" method="POST" onsubmit="return enviarFormulario()">
-                    <input type="text" id="nombre" name="nombre" placeholder="Tú Nombre*" required>
-                    <input type="text" id="telefono" name="telefono" placeholder="Número telefónico">
-                    <input type="email" id="email" name="email" placeholder="Dirección de correo*" required>
-                    <input type="text" id="tema" name="tema" placeholder="Tema">
-                    <textarea id="mensaje" name="mensaje" cols="30" rows="10" placeholder="Mensaje*" required></textarea>
-                    <button type="submit" class="Boton_Contacto">
-                        Enviar Mensaje <i class="fa-solid fa-paper-plane"></i>
-                        <span class="overlay"></span>
-                    </button>
-                </form>
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="section-header">
+            <p class="section-subtitle">Portfolio</p>
+            <h2 class="section-title">Proyectos Destacados</h2>
+            <p class="section-description">
+                Una selección de mis trabajos más representativos en desarrollo web y modelado 3D
+            </p>
+        </div>
+        <div class="projects-filter">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="web">Desarrollo Web</button>
+            <button class="filter-btn" data-filter="3d">Modelado 3D</button>
+            <button class="filter-btn" data-filter="multimedia">Multimedia</button>
+        </div>
+        <div class="projects-grid">
+            <!-- Proyecto Web 1 -->
+            <div class="project-card" data-category="web">
+                <img src="Img/Web/CDMAFE.png" alt="CDMAFE" class="project-image">
+                <div class="project-content">
+                    <p class="project-category">Desarrollo Web</p>
+                    <h3 class="project-title">CDMAFE - Sitio Web Corporativo</h3>
+                    <p class="project-description">
+                        Desarrollo completo de sitio web para empresa de carpintería, con diseño responsive 
+                        y enfoque en experiencia de usuario profesional.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://cdmafe.com.co/" target="_blank" class="project-link">
+                            <i class="fas fa-external-link-alt"></i> <span>Ver Sitio</span>
+                        </a>
+                    </div>
+                </div>
             </div>
-            <!-- datos -->
-            <div class="col">
-                <div class="info">
-                    <ul>
-                        <li>
-                            <i class="fa-solid fa-location-dot"></i>
-                            <p>Colombia, Zipaquirá</p>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-mobile-screen"></i>
-                            <p>Celular: +57 3229015631</p>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-envelope"></i>
-                            <p>Email: stivenfs2014@gmail.com</p>
-                        </li>
-                    </ul>
-                     <!-- Botón de WhatsApp -->
-        <a href="https://wa.me/+573229015631?" 
-           class="whatsapp-button" 
-           target="_blank">
-            <svg class="whatsapp-icon" viewBox="0 0 24 24">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
-            </svg>
-            Contáctame
-        </a>
+
+            <!-- Proyecto Web 2 -->
+            <div class="project-card" data-category="web">
+                <img src="Img/Web/Bellaroma.png" alt="Bellaroma" class="project-image">
+                <div class="project-content">
+                    <p class="project-category">E-commerce</p>
+                    <h3 class="project-title">Bellaroma - Tienda Online</h3>
+                    <p class="project-description">
+                        Plataforma de e-commerce para venta de perfumes con carrito de compras, 
+                        catálogo dinámico y diseño elegante.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://arizast.github.io/Bellaroma/" target="_blank" class="project-link">
+                            <i class="fas fa-external-link-alt"></i> Demo
+                        </a>
+                        <a href="https://github.com/ArizaST/Bellaroma" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> <span>Código</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proyecto Web 3 -->
+            <div class="project-card" data-category="web">
+                <img src="Img/Web/Liana.png" alt="Liana" class="project-image">
+                <div class="project-content">
+                    <p class="project-category">Fashion Web</p>
+                    <h3 class="project-title">Liana - Tienda de Moda</h3>
+                    <p class="project-description">
+                        Sitio web moderno para tienda de ropa con galería interactiva, 
+                        diseño responsivo y animaciones suaves.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://arizast.github.io/Liana-/" target="_blank" class="project-link">
+                            <i class="fas fa-external-link-alt"></i> Demo
+                        </a>
+                        <a href="https://github.com/ArizaST/Liana" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> <span>Código</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proyecto 3D 1 -->
+            <div class="project-card" data-category="3d">
+                <iframe 
+                    src="https://sketchfab.com/models/17be5e745f7b41fdabbf5151e47a8b56/embed?autostart=0&ui_controls=0&ui_infos=0&ui_inspector=0&ui_stop=0&ui_watermark=0" 
+                    class="project-iframe"
+                    allow="autoplay; fullscreen; vr"
+                ></iframe>
+                <div class="project-content">
+                    <p class="project-category">Modelado 3D</p>
+                    <h3 class="project-title">Automóvil 3D</h3>
+                    <p class="project-description">
+                        Modelo 3D detallado de automóvil con texturizado realista y 
+                        optimización para visualización web interactiva.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://sketchfab.com/3d-models/carro-17be5e745f7b41fdabbf5151e47a8b56" target="_blank" class="project-link">
+                            <i class="fas fa-cube"></i> <span>Ver en Sketchfab</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proyecto 3D 2 -->
+            <div class="project-card" data-category="3d">
+                <iframe 
+                    src="https://sketchfab.com/models/e19bb4bc94e144d5976a4581263f1198/embed?autostart=0&ui_controls=0&ui_infos=0&ui_inspector=0&ui_stop=0&ui_watermark=0" 
+                    class="project-iframe"
+                    allow="autoplay; fullscreen; vr"
+                ></iframe>
+                <div class="project-content">
+                    <p class="project-category">Character Design</p>
+                    <h3 class="project-title">Dragon Drytron Gamma</h3>
+                    <p class="project-description">
+                        Criatura fantástica modelada con gran detalle, inspirada en diseños 
+                        de cartas coleccionables con acabados profesionales.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://sketchfab.com/3d-models/monstruo-e19bb4bc94e144d5976a4581263f1198" target="_blank" class="project-link">
+                            <i class="fas fa-cube"></i> 
+                            <span>Ver en Sketchfab</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proyecto 3D 3 - Habitación -->
+            <div class="project-card" data-category="3d">
+                <iframe 
+                    src="https://sketchfab.com/models/c2639d89c92c48b087f2814e4b77d22f/embed?autostart=0&ui_controls=0&ui_infos=0&ui_inspector=0&ui_stop=0&ui_watermark=0" 
+                    class="project-iframe"
+                    allow="autoplay; fullscreen; vr"
+                ></iframe>
+                <div class="project-content">
+                    <p class="project-category">Diseño de Interiores</p>
+                    <h3 class="project-title">Habitación Gaming/Trabajo 3D</h3>
+                    <p class="project-description">
+                        Diseño moderno de habitación multifuncional con área de trabajo, gaming setup, 
+                        cama contemporánea y elementos decorativos cuidadosamente seleccionados.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://sketchfab.com/3d-models/habitacion-c2639d89c92c48b087f2814e4b77d22f" target="_blank" class="project-link">
+                            <i class="fas fa-cube"></i> 
+                            <span>Ver en Sketchfab</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proyecto 3D 4 - Tiburón -->
+            <div class="project-card" data-category="3d">
+                <iframe 
+                    src="https://sketchfab.com/models/1cf1e27af5d143c2b2cc75accfb3bf2b/embed?autostart=0&ui_controls=0&ui_infos=0&ui_inspector=0&ui_stop=0&ui_watermark=0" 
+                    class="project-iframe"
+                    allow="autoplay; fullscreen; vr"
+                ></iframe>
+                <div class="project-content">
+                    <p class="project-category">Character Design</p>
+                    <h3 class="project-title">Tiburón Stylized 3D</h3>
+                    <p class="project-description">
+                        Modelo de tiburón con estilo cartoon amigable, perfecto para videojuegos, 
+                        animaciones infantiles y contenido educativo. Diseño colorido y expresivo.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://sketchfab.com/3d-models/tiburon-1cf1e27af5d143c2b2cc75accfb3bf2b" target="_blank" class="project-link">
+                            <i class="fas fa-cube"></i> 
+                            <span>Ver en Sketchfab</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proyecto Multimedia -->
+            <div class="project-card" data-category="multimedia">
+                <img src="Img/cocina.png" alt="Simulación" class="project-image">
+                <div class="project-content">
+                    <p class="project-category">Simulación</p>
+                    <h3 class="project-title">Simulación de Partículas</h3>
+                    <p class="project-description">
+                        Sistema avanzado de simulación de partículas para efectos visuales 
+                        y animaciones cinematográficas realistas.
+                    </p>
+                    <div class="project-links">
+                        <a href="Video/Cocina.mp4" class="project-link">
+                            <i class="fas fa-play"></i> <span>Ver Animación</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proyecto Dragon Drytron Transformación -->
+            <div class="project-card" data-category="multimedia">
+                <img src="Img/video.png" alt="Dragon Transformation" class="project-image">
+                <div class="project-content">
+                    <p class="project-category">Animación 3D</p>
+                    <h3 class="project-title">Dragon Drytron - Transformación Animada</h3>
+                    <p class="project-description">
+                        Animación 3D cinematográfica del Dragon Drytron mostrando su proceso de transformación completo: 
+                        desde las piezas individuales hasta el ensamblaje final del robot. Demostración de habilidades 
+                        en animación, rigging y efectos visuales.
+                    </p>
+                    <div class="project-links">
+                        <a href="Video/Video.mp4" class="project-link">
+                            <i class="fas fa-play"></i> <span>Ver Animación</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-    <!-- footer -->
-    <footer>
-        <a href="#inicio" class="arriba">
-            <i class="fa-solid fa-angles-up"></i>
-        </a>
-        <div class="redes">
-            <a href="https://sketchfab.com/stiven_ariza21"><i class="fa-solid fa-cube"></i></a>
-            <a href="https://github.com/ArizaST"><i class="fa-brands fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/stiven-ariza-vargas-3457292b1/"><i class="fa-brands fa-linkedin-in"></i></a>
+    <!-- About Section -->
+    <section id="about">
+        <div class="section-header">
+            <p class="section-subtitle">Conoce más</p>
+            <h2 class="section-title">Sobre Mí</h2>
+            <p class="section-description">
+                Mi pasión por la tecnología y el diseño me impulsa a crear experiencias digitales excepcionales
+            </p>
+        </div>
+        <div class="about-content">
+            <div class="about-image">
+                <div class="about-image-container">
+                    <img src="Img/Stiven.jpeg" alt="Stiven Ariza">
+                </div>
+            </div>
+            <div class="about-text">
+                <h3>Ingeniero Multimedia Especializado</h3>
+                <p>
+                    Soy Stiven Ariza Vargas, Ingeniero Multimedia graduado de la Universidad Militar Nueva Granada. 
+                    Mi especialización abarca desarrollo web frontend y backend, modelado 3D profesional y diseño de experiencias 
+                    de usuario centradas en el impacto visual y la funcionalidad.
+                </p>
+                <p>
+                    Con un enfoque técnico sólido y una visión creativa innovadora, he desarrollado proyectos que 
+                    combinan estética contemporánea con funcionalidad robusta. Mi experiencia incluye desde sitios 
+                    web corporativos hasta modelado 3D de alta fidelidad para diversas industrias.
+                </p>
+                <p>
+                    Actualmente enfocado en expandir mis conocimientos en tecnologías emergentes y mantenerme 
+                    a la vanguardia del diseño digital y desarrollo multimedia.
+                </p>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="section-header">
+            <p class="section-subtitle">Conectemos</p>
+            <h2 class="section-title">Contacto Profesional</h2>
+            <p class="section-description">
+                ¿Tienes un proyecto en mente? Me encantaría colaborar contigo en tu próxima idea
+            </p>
+        </div>
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3>Información de Contacto</h3>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Ubicación</h4>
+                        <p>Zipaquirá, Colombia</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h4>Teléfono</h4>
+                        <p>+57 322 901 5631</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email</h4>
+                        <p>stivenfs2014@gmail.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <div>
+                        <h4>WhatsApp</h4>
+                        <p>
+                            <a href="https://wa.me/+573229015631" target="_blank" style="color: var(--accent-color); text-decoration: none;">
+                                Enviar mensaje
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <form class="contact-form" id="formulario-contacto" action="https://formspree.io/f/xldjpddq" method="POST" onsubmit="return enviarFormulario()">
+                <div class="form-group">
+                    <label for="nombre" data-es="Nombre Completo" data-en="Full Name">Nombre Completo</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefono" data-es="Teléfono (Opcional)" data-en="Phone (Optional)">Teléfono (Opcional)</label>
+                    <input type="text" id="telefono" name="telefono">
+                </div>
+                <div class="form-group">
+                    <label for="email" data-es="Correo Electrónico" data-en="Email Address">Correo Electrónico</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="tema" data-es="Asunto" data-en="Subject">Asunto</label>
+                    <input type="text" id="tema" name="tema">
+                </div>
+                <div class="form-group">
+                    <label for="mensaje" data-es="Mensaje" data-en="Message">Mensaje</label>
+                    <textarea id="mensaje" name="mensaje" required></textarea>
+                </div>
+                <button type="submit" class="btn-primary contact-submit-btn">
+                    <span data-es="Enviar Mensaje" data-en="Send Message">Enviar Mensaje</span>
+                    <i class="fas fa-paper-plane" style="margin-left: 0.5rem;"></i>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-social">
+                <a href="https://github.com/ArizaST" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/stiven-ariza-3457292b1/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://sketchfab.com/stiven_ariza21" target="_blank"><i class="fas fa-cube"></i></a>
+            </div>
+            <p class="footer-text">
+                © 2024 Stiven Ariza. Todos los derechos reservados. Diseñado con pasión y dedicación.
+            </p>
         </div>
     </footer>
 
-    <script src="formulario.js"></script>
+    <script src="language.js"></script>
     <script src="menu.js"></script>
-    <script src="skills.js"></script>
 </body>
 </html>
