@@ -38,14 +38,14 @@ const navigationTranslations = {
 const heroTranslations = {
     es: {
         subtitle: 'Ingeniero Multimedia',
-        title: 'Transformando ideas en realidad digital',
+        title: 'Soluciones Digitales y Excelencia 3D',
         description: 'Como Ingeniero Multimedia, combino creatividad y tecnología para desarrollar sitios web únicos y modelos 3D que cobran vida. Cada proyecto es una oportunidad de innovar y crear algo extraordinario.',
         btnWork: 'Ver Mi Trabajo',
         btnCV: 'Descargar CV'
     },
     en: {
         subtitle: 'Multimedia Engineer',
-        title: 'Transforming ideas into digital reality',
+        title: 'Digital Solutions & 3D Excellence',
         description: 'As a Multimedia Engineer, I combine creativity and technology to develop unique websites and 3D models that come to life. Each project is an opportunity to innovate and create something extraordinary.',
         btnWork: 'View My Work',
         btnCV: 'Download CV'
@@ -56,7 +56,7 @@ const heroTranslations = {
 const skillsTranslations = {
     es: {
         subtitle: 'Habilidades',
-        title: 'Stack Tecnológico & Especialidades',
+        title: 'Stack Tecnológico y Especialidades',
         description: 'Dominio técnico en múltiples disciplinas del desarrollo multimedia y diseño digital',
         categories: ['Desarrollo Web', 'Modelado 3D', 'Diseño UI/UX'],
         individualSkills: {
