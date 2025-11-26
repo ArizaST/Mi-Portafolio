@@ -148,6 +148,51 @@ const individualProjectsTranslations = {
             }
         }
     },
+    puertadelcielo: {
+    es: {
+        category: 'Desarrollo Web',
+        title: 'Puerta del Cielo - Sitio Web',
+        description: 'Plataforma web completa para iglesia cristiana con sistema de gestión de eventos, transmisiones en vivo, calendario de actividades y diseño responsive optimizado para comunidad religiosa.',
+        links: {
+            'Ver Sitio': 'Ver Sitio',
+            'View Site': 'Ver Sitio'
+        }
+    },
+    en: {
+        category: 'Web Development',
+        title: 'Puerta del Cielo - Website',
+        description: 'Complete web platform for Christian church with event management system, live streaming, activity calendar and responsive design optimized for religious community.',
+        links: {
+            'Ver Sitio': 'View Site',
+            'View Site': 'View Site'
+        }
+    }
+},
+
+paulafelipe: {
+    es: {
+        category: 'Portafolio Digital',
+        title: 'Paula & Felipe - Portafolio Community Managers',
+        description: 'Portafolio profesional interactivo para dúo de community managers, con showcase de proyectos, casos de estudio, métricas de crecimiento y diseño moderno enfocado en marketing digital y redes sociales.',
+        links: {
+            'Ver Sitio': 'Ver Sitio',
+            'View Site': 'Ver Sitio',
+            'Código': 'Código',
+            'Code': 'Código'
+        }
+    },
+    en: {
+        category: 'Digital Portfolio',
+        title: 'Paula & Felipe - Community Managers Portfolio',
+        description: 'Interactive professional portfolio for community manager duo, featuring project showcase, case studies, growth metrics and modern design focused on digital marketing and social media.',
+        links: {
+            'Ver Sitio': 'View Site',
+            'View Site': 'View Site',
+            'Código': 'Code',
+            'Code': 'Code'
+        }
+    }
+},
     bellaroma: {
         es: {
             category: 'E-commerce',
@@ -520,6 +565,10 @@ function updateIndividualProjects() {
     const projectMappings = {
         'CDMAFE - Sitio Web Corporativo': 'cdmafe',
         'CDMAFE - Corporate Website': 'cdmafe',
+        'Puerta del Cielo - Sitio Web': 'puertadelcielo',
+        'Puerta del Cielo - Website': 'puertadelcielo',
+        'Paula & Felipe - Portafolio Community Managers': 'paulafelipe',
+        'Paula & Felipe - Community Managers Portfolio': 'paulafelipe',
         'Bellaroma - Tienda Online': 'bellaroma',
         'Bellaroma - Online Store': 'bellaroma',
         'Liana - Tienda de Moda': 'liana',
