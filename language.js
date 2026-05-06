@@ -356,6 +356,26 @@ paulafelipe: {
                 'View Animation': 'View Animation'
             }
         }
+    },
+    pyjabogados: {
+        es: {
+            category: 'Full-Stack & IA',
+            title: 'P&J Abogados - Landing & Bot IA',
+            description: 'Desarrollo full-stack de dos landing pages para captación de leads, integración de bot conversacional para WhatsApp con IA en PHP y panel administrativo para gestión de base de datos.',
+            links: {
+                'Ver Sitio': 'Ver Sitio',
+                'View Site': 'Ver Sitio'
+            }
+        },
+        en: {
+            category: 'Full-Stack & AI',
+            title: 'P&J Abogados - Landing & AI Bot',
+            description: 'Full-stack development of two lead-capture landing pages, WhatsApp conversational AI bot integration using PHP, and custom admin panel for database management.',
+            links: {
+                'Ver Sitio': 'View Site',
+                'View Site': 'View Site'
+            }
+        }
     }
 };
 
@@ -585,7 +605,9 @@ function updateIndividualProjects() {
         'Simulación de Cocina - Física de Fluidos': 'simulation',
         'Kitchen Simulation - Fluid Physics': 'simulation',
         'Dragon Drytron - Transformación Animada': 'dragonTransformation',
-        'Dragon Drytron - Animated Transformation': 'dragonTransformation'
+        'Dragon Drytron - Animated Transformation': 'dragonTransformation',
+        'P&J Abogados - Landing & Bot IA': 'pyjabogados',
+        'P&J Abogados - Landing & AI Bot': 'pyjabogados'
     };
 
     // Traducciones globales para todos los botones
