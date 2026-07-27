@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://arizast.github.io/Mi-Portafolio/sitemap.xml
